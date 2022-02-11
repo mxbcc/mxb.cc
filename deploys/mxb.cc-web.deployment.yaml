@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mxb-web
+  name: mxb-web
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mxb-web
+  template:
+    metadata:
+      labels:
+        app: mxb-web
+    spec:
+      containers:
+        - env:
+            - name: NODE_ENV
+              value: production
+          image: mxbcc/mxb.cc-web:master
+          imagePullPolicy: IfNotPresent
+          name: mxb-web
+          resources: {}
+          volumeMounts:
+            - mountPath: /usr/src/app/.env.production
+              name: volume-config
+              subPath: .env.production
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      securityContext: {}
+      volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: .env.production
+                path: .env.production
+            name: mxb-web-configmap
+          name: volume-config

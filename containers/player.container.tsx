@@ -82,7 +82,7 @@ export class Player extends React.Component<PlayerProps, any> {
         this.setState({ progress: 0 });
 
         this.howler = new Howl({
-            src: [`/nest-api/music/kinds/${kind ?? 'netease'}/songs/${id}`],
+            src: [`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/music/kinds/${kind ?? 'netease'}/songs/${id}`],
             html5: true,
             autoplay: true,
             format: ["mp3", 'wav', 'mp4'],
@@ -101,7 +101,7 @@ export class Player extends React.Component<PlayerProps, any> {
             onpause: () => this.setState({ playing: false }),
         });
 
-        fetch(`/nest-api/music/kinds/${kind ?? 'netease'}/songs/${id}/lyric`).then(async res => {
+        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/music/kinds/${kind ?? 'netease'}/songs/${id}/lyric`).then(async res => {
             const body = await res.json();
             if (!body.nolyric) {
                 const lyric = body?.lyric;

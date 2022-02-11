@@ -193,38 +193,36 @@
 
   .media(@phone, height, 180px);
 
-  :global {
-    .slider {
-      position: fixed !important;
-      bottom: 60px;
+  .slider {
+    position: fixed !important;
+    bottom: 60px;
+    height: 4px;
+    left: 0;
+    right: 0;
+
+    .track {
       height: 4px;
-      left: 0;
-      right: 0;
+      background-color: @primary-color;
 
-      .track {
-        height: 4px;
-        background-color: @primary-color;
-
-        &.track-1 {
-          background-color: @border-color;
-        }
+      &.track-1 {
+        background-color: @border-color;
       }
+    }
 
+    .thumb {
+      outline: none;
+      opacity: 0;
+      top: -4px;
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      border-radius: 12px;
+      background-color: @primary-color;
+    }
+
+    &:hover {
       .thumb {
-        outline: none;
-        opacity: 0;
-        top: -4px;
-        cursor: pointer;
-        height: 12px;
-        width: 12px;
-        border-radius: 12px;
-        background-color: @primary-color;
-      }
-
-      &:hover {
-        .thumb {
-          opacity: 1;
-        }
+        opacity: 1;
       }
     }
   }

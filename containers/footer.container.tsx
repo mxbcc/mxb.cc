@@ -22,7 +22,7 @@ export const Footer = ({ meta, style }: FooterProps) => {
     const [email, setEmail] = useState('');
     const subscribe = async () => {
         try {
-            await axios.post('/nest-api/subscriptions', { email });
+            await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/subscriptions`, { email });
             addToast('订阅成功，如需取消请联系管理员', { appearance: 'success', autoDismiss: true });
         } catch (e) {
             addToast(e?.response?.data?.message ?? e.message, { appearance: 'error', autoDismiss: true });

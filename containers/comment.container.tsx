@@ -39,7 +39,7 @@ export const CommentContainer = ({ page, meta }: CommentContainerProps) => {
             return;
         }
         try {
-            const res = await axios.post(`${serverUrl}/nest-api/comments`, {
+            const res = await axios.post(`/api/comments`, {
                 name,
                 email,
                 url,

@@ -33,5 +33,5 @@ module.exports = withLess({
     images: {
         domains: ['mxbcc.oss-cn-beijing.aliyuncs.com'],
     },
-    pageExtensions: ['tsx', 'page.tsx'],
+    pageExtensions: ['tsx', 'page.tsx', 'ts'],
 });

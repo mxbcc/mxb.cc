@@ -5,6 +5,9 @@ import { Icons } from "../constants/icons.constants";
 import * as Lyrics from 'lyrics.js';
 import { WithToast } from "../decorators/with-toast.decorator";
 import { getMusicSource } from "../helpers/data.helper";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig: { serverUrl } } = getConfig();
 
 interface PlayerProps {
     id: string;
@@ -82,7 +85,7 @@ export class Player extends React.Component<PlayerProps, any> {
         this.setState({ progress: 0 });
 
         this.howler = new Howl({
-            src: [`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/music/kinds/${kind ?? 'netease'}/songs/${id}`],
+            src: [`${serverUrl}/nest-api/music/kinds/${kind ?? 'netease'}/songs/${id}`],
             html5: true,
             autoplay: true,
             format: ["mp3", 'wav', 'mp4'],
@@ -101,7 +104,7 @@ export class Player extends React.Component<PlayerProps, any> {
             onpause: () => this.setState({ playing: false }),
         });
 
-        fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/music/kinds/${kind ?? 'netease'}/songs/${id}/lyric`).then(async res => {
+        fetch(`${serverUrl}/nest-api/music/kinds/${kind ?? 'netease'}/songs/${id}/lyric`).then(async res => {
             const body = await res.json();
             if (!body.nolyric) {
                 const lyric = body?.lyric;

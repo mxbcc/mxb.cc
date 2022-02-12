@@ -5,6 +5,9 @@ import { useQuery } from "@apollo/client";
 import { GET_COMMENTS } from "../graphql/comment.gql";
 import { useToasts } from 'react-toast-notifications';
 import { Metadata } from "../interfaces/meta.interface";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig: { serverUrl } } = getConfig();
 
 const MxbComment: any = dynamic(
     () => import("mxb-comment").then(mod => mod.MxbComment) as any,
@@ -36,7 +39,7 @@ export const CommentContainer = ({ page, meta }: CommentContainerProps) => {
             return;
         }
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/comments`, {
+            const res = await axios.post(`${serverUrl}/nest-api/comments`, {
                 name,
                 email,
                 url,

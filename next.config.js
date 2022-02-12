@@ -7,7 +7,7 @@ module.exports = withLess({
             test: /\.(svg|png|jpg)/,
             use: [
                 options.defaultLoaders.babel,
-                { loader: 'url-loader' }
+                {loader: 'url-loader'}
             ],
         });
 
@@ -26,6 +26,9 @@ module.exports = withLess({
         }
 
         return config
+    },
+    publicRuntimeConfig: {
+        serverUrl: process.env.NEXT_PUBLIC_SERVER_URL,
     },
     images: {
         domains: ['mxbcc.oss-cn-beijing.aliyuncs.com'],

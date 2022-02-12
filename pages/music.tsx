@@ -8,9 +8,12 @@ import { Layout } from "../containers/layout.container";
 import { useState } from "react";
 import { Player } from "../containers/player.container";
 import { getMusicSource } from "../helpers/data.helper";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig: { serverUrl } } = getConfig();
 
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/music`);
+    const res = await fetch(`${serverUrl}/nest-api/music`);
     const playlist = await res.json();
 
     return { props: { tracks: playlist.tracks } };
@@ -34,7 +37,7 @@ export default function MusicPage({ tracks, meta }) {
     }
 
     const updateTracks = async () => {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/music`);
+        const res = await fetch(`${serverUrl}/nest-api/music`);
         const playlist = await res.json();
         setTracks(playlist.tracks);
     }

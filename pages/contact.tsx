@@ -8,6 +8,9 @@ import axios from 'axios';
 import { useToasts } from 'react-toast-notifications';
 import { useState } from "react";
 import { BaseProps } from "../interfaces/props.interface";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig: { serverUrl } } = getConfig();
 
 export default function ContactPage({ meta }: BaseProps) {
     const [sending, updateSending] = useState(false);
@@ -15,7 +18,7 @@ export default function ContactPage({ meta }: BaseProps) {
     const submit = async (values) => {
         updateSending(true);
         try {
-            await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/contacts`, values);
+            await axios.post(`${serverUrl}/nest-api/contacts`, values);
             addToast('Send Successful', { appearance: 'success', autoDismiss: true });
         } catch (e) {
             addToast(e?.response?.data?.message ?? e.message, { appearance: 'error', autoDismiss: true });

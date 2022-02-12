@@ -4,6 +4,9 @@ import { Metadata } from "./meta.interface";
 export interface ConfigProps {
     config?: {
         serverRuntimeConfig: any;
+        publicRuntimeConfig: {
+            serverUrl: string;
+        }
     }
 }
 

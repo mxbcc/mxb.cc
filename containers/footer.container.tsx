@@ -6,6 +6,9 @@ import axios from 'axios';
 import { useToasts } from 'react-toast-notifications';
 import { useQuery } from "@apollo/client";
 import { GET_GLOBAL_LINKS } from "../graphql/links.gql";
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig: { serverUrl } } = getConfig();
 
 interface FooterProps extends BaseProps {
     meta: Metadata;
@@ -22,7 +25,7 @@ export const Footer = ({ meta, style }: FooterProps) => {
     const [email, setEmail] = useState('');
     const subscribe = async () => {
         try {
-            await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/nest-api/subscriptions`, { email });
+            await axios.post(`${serverUrl}/nest-api/subscriptions`, { email });
             addToast('订阅成功，如需取消请联系管理员', { appearance: 'success', autoDismiss: true });
         } catch (e) {
             addToast(e?.response?.data?.message ?? e.message, { appearance: 'error', autoDismiss: true });

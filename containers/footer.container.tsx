@@ -68,7 +68,7 @@ export const Footer = ({ meta, style }: FooterProps) => {
                     <a className="mr-8 hover:text-white" href="http://weibo.com/zfeng217" target="_blank">
                         <span className="text-100xl">Weibo</span>
                     </a>
-                    <a className="mr-8 hover:text-white" href="http://github.com/miaowing/mxb" target="_blank">
+                    <a className="mr-8 hover:text-white" href="https://github.com/mxbcc" target="_blank">
                         <span className="text-100xl">GitHub</span>
                     </a>
                 </div>

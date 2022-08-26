@@ -23,7 +23,7 @@ export default function MusicPage({ tracks, meta }) {
     const [playingIndex, setPlayingIndex] = useState<number>(-1);
     const [current, setCurrent] = useState<any>({ id: '', dt: 0 });
     const [localTracks, setTracks] = useState<any>([]);
-    const list = localTracks.length > 0 ? localTracks : tracks;
+    const list = localTracks.length > 0 ? localTracks : tracks ?? [];
 
     const play = (track, index) => {
         setCurrent(track);

@@ -32,7 +32,7 @@ export default class MyApp extends App<MyAppProps> {
     render() {
         const { Component, pageProps, apolloClient, user, cookies } = this.props;
         const isDark = cookies.get('mode') === 'dark';
-        console.log(cookies, cookies.get('mode'));
+        const Children = Component as any;
         return (
             <html className={isDark ? 'dark' : ''}>
             <ApolloProvider client={apolloClient}>
@@ -49,7 +49,7 @@ export default class MyApp extends App<MyAppProps> {
                             <script dangerouslySetInnerHTML={{ __html: meta.header_script }}/>
                         </Head>
                         <body className="dark:bg-neutral-900 dark:text-gray-50">
-                        <Component {...pageProps} user={user} meta={meta}/>
+                        <Children {...pageProps} user={user} meta={meta}/>
                         </body>
                     </>}/>
                 </ToastProvider>

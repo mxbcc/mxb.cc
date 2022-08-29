@@ -3,7 +3,8 @@ import * as React from 'react';
 export const Cards = ({ children, title }) => (
     <div className="mb-12">
         <h2 className="mx-8 font-bold text-4xl md:mx-16">{title}</h2>
-        <div className="grid grid-cols-1 gap-12 mx-8 md:mx-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div
+            className="grid grid-cols-1 gap-12 mx-8 md:mx-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {children}
         </div>
     </div>
@@ -21,18 +22,24 @@ export const Card = ({ url, thumb, title, description }: PostCardProps) => {
     return <article
         className="
             grid bg-white rounded-lg border border-solid border-gray-100
+            dark:bg-zinc-800 dark:border-zinc-800 dark:hover:shadow-none
             overflow-hidden leading-normal mt-12 hover:shadow-post transition-all duration-300
         ">
-        <a href={url} target={isExternalUrl ? '_blank' : ''} rel="noreferrer">
+        <a href={url} target={isExternalUrl ? '_blank' : ''}
+           rel="noreferrer"
+           className="hover:text-primary dark:hover:text-white">
             {!!thumb && (<img src={thumb + '?x-oss-process=style/post-thumb'} alt={title}/>)}
         </a>
         <header className="p-10">
-            <h2 className="text-black text-3xl mb-1">
-                <a href={url} target={isExternalUrl ? '_blank' : ''} rel="noreferrer" className="hover:text-primary">
+            <h2 className="text-black text-3xl mb-1 dark:text-gray-50">
+                <a href={url}
+                   target={isExternalUrl ? '_blank' : ''}
+                   rel="noreferrer"
+                   className="hover:text-primary dark:hover:text-white">
                     {title}
                 </a>
             </h2>
-            <div className="font-extralight mb-0">{description}</div>
+            <div className="font-extralight mb-0 dark:text-gray-50">{description}</div>
         </header>
     </article>;
 }

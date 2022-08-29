@@ -32,7 +32,7 @@ export const Post = ({ post, children, meta }) => {
                     style={{ backgroundImage: `${post.cover ? `url(${post?.cover?.publicUrl})` : 'none'}` }}
                     className="
                         text-center min-h-banner bg-no-repeat bg-cover bg-footer bg-center rounded-3xl
-                        mb-14 text-white grid content-center relative p-8 overflow-hidden
+                        mb-14 text-white grid content-center relative p-8 overflow-hidden dark:bg-zinc-800
                     ">
                     <h1 className="text-center mx-auto mb-2 text-5xl max-w-screen-sm">
                         {post.title}
@@ -43,7 +43,11 @@ export const Post = ({ post, children, meta }) => {
                 </div>
                 <StickyContainer className="justify-center flex gap-10x">
                     <div className="max-w-post w-0 flex-1 lg:mr-10">
-                        <div className="border border-solid border-gray-100 p-8 sm:p-12 bg-white rounded">
+                        <div className="
+                            border border-solid border-gray-100 p-8 sm:p-12
+                            bg-white rounded dark:bg-zinc-800 dark:border-zinc-800
+                            dark:text-gray-50
+                        ">
                             {content}
                         </div>
                         {post?.tags?.length > 0 ? (
@@ -51,7 +55,11 @@ export const Post = ({ post, children, meta }) => {
                                 <div className="flex gap-2 text-2xl">
                                     {post.tags?.map(tag => (
                                         <span key={tag.key}
-                                              className="block mx-2 px-4 bg-primary text-white rounded py-2">
+                                              className="
+                                                block mx-2 px-4 bg-primary text-white
+                                                rounded py-2 dark:bg-zinc-800
+                                              "
+                                        >
                                         {tag.name}
                                     </span>
                                     ))}

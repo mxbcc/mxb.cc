@@ -23,7 +23,7 @@ export class Contact extends React.Component<any, any> {
             <Query type="object" query={GET_BANNER} variables={{ key: 'contact-me' }} render={banner => (
                 <div className="
                     text-center min-h-banner bg-no-repeat bg-cover bg-footer bg-center rounded-3xl
-                    mb-14 text-white grid content-center relative p-8 overflow-hidden
+                    mb-14 text-white grid content-center relative p-8 overflow-hidden dark:bg-zinc-800
                 ">
                     <h1 className="text-center mx-auto mb-2 text-5xl max-w-screen-sm">{banner.title}</h1>
                     <div className="mx-auto text-center max-w-screen-sm text-100xl">{banner.content}</div>
@@ -31,10 +31,10 @@ export class Contact extends React.Component<any, any> {
             )}/>
             <div
                 className="
-                    -mt-40 mx-auto shadow-contact container md:max-w-screen-sm
+                    -mt-40 mx-auto container md:max-w-screen-sm shadow-lg
                     lg:max-w-screen-md xl:max-w-screen-lg relative z-20 block md:flex
                 ">
-                <form className="bg-white p-24 flex-2">
+                <form className="bg-white p-24 flex-2 dark:bg-zinc-800">
                     <h5 className="text-4xl font-medium">Send me a Message</h5>
                     <Input form={form} name="name" placeholder="Your Name *" rules={[UseRequiredRule('')]}/>
                     <Input form={form} name="email" placeholder="Email Address *" rules={[UseEmailRule('')]}/>

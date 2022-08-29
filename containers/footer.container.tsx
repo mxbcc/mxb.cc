@@ -33,7 +33,10 @@ export const Footer = ({ meta, style }: FooterProps) => {
     }
 
     return <footer
-        className="inline-block bg-footer text-white py-20 mt-16 w-full leading-footer text-100xl text-footer-text"
+        className="
+            inline-block bg-footer text-white py-20 mt-16 w-full leading-footer
+            text-100xl text-footer-text dark:bg-zinc-800
+        "
         style={style}>
         <div className="mx-8 md:mx-16">
             <div className="inline-block">

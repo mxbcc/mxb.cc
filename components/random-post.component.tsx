@@ -2,7 +2,7 @@ import * as React from 'react';
 import { prettyDate } from "../helpers/date.helper";
 
 export const RandomPost = ({ posts }) => {
-    return <section className="bg-white border border-solid border-gray-100">
+    return <section className="bg-white border border-solid border-gray-100 dark:bg-zinc-800 dark:border-none">
         <h1 className="text-100xl p-6">随便看看</h1>
         <div className="px-4">
             {posts.map(post => (

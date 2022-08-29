@@ -142,7 +142,7 @@ export class Player extends React.Component<PlayerProps, any> {
                 }}
                 value={this.state.progress}
                 max={this.state.max}/>
-            <div className="footer">
+            <div className="footer dark:bg-zinc-800">
                 <div className="playing">
                     <img src={image} alt={name}/>
                     <div className="info">

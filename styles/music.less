@@ -339,3 +339,49 @@
     word-break: break-all;
   }
 }
+
+.dark {
+  .footer {
+    .button {
+      svg {
+        color: @dark-text-color;
+      }
+
+      &:hover {
+        background-color: @dark-bg-color;
+      }
+    }
+
+    .lrc {
+      color: @dark-text-color;
+    }
+
+    .info {
+      .name {
+        color: @dark-text-color;
+      }
+
+      .artist {
+        color: @dark-text-color;
+      }
+    }
+  }
+
+  .player {
+    .slider {
+      background-color: @dark-bg-color;
+
+      .track {
+        background-color: @dark-primary-color;
+
+        &.track-1 {
+          background-color: @dark-bg-color;
+        }
+      }
+
+      .thumb {
+        background-color: @dark-bg-color;
+      }
+    }
+  }
+}

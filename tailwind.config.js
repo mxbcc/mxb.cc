@@ -4,7 +4,7 @@ module.exports = {
         './containers/**/*.{js,ts,jsx,tsx}',
         './pages/**/*.{js,ts,jsx,tsx}',
     ],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'class', // or 'media' or 'class'
     theme: {
         extend: {
             width: {
@@ -39,6 +39,7 @@ module.exports = {
             boxShadow: {
                 'contact': '0 0 50px 0 rgba(0, 0, 0, .2)',
                 'post': '0 0 30px #d5d5d5',
+                'post-dark': '0 0 30px rgb(39 39 42)'
             },
             lineHeight: {
                 footer: '180%',
@@ -69,7 +70,7 @@ module.exports = {
                 'gallery-button': 'rgba(255, 255, 255, 0.3)',
                 'gallery-button-hover': 'rgba(255, 255, 255, 0.6)',
                 'gallery-button-hover-bg': 'rgba(255, 255, 255, 0.1)',
-            }
+            },
         },
     },
     variants: {

@@ -84,6 +84,7 @@ export class Input extends React.Component<IInputProps, any> {
                 className={`
                     outline-0 appearance-none text-100xl leading-5 mt-9 py-1.5 transition-all duration-200
                     ease-linear align-middle whitespace-nowrap bg-white bg-none border-b border-solid
+                    dark:bg-neutral-900 dark:border-none
                     border-gray-200 w-full hover:border-primary ${getFieldError(name) ? 'border-red-600' : ''}
                 `}
                 id={id}
@@ -99,6 +100,7 @@ export class Input extends React.Component<IInputProps, any> {
                 className={`
                     outline-0 appearance-none text-100xl leading-5 mt-9 py-1.5
                     align-middle whitespace-nowrap bg-white bg-none border-b border-solid
+                    dark:bg-neutral-900 dark:border-none
                     border-gray-200 w-full hover:border-primary ${getFieldError(name) ? 'border-red-600' : ''}
                 `}
                 {...getFieldProps(name, { rules })}

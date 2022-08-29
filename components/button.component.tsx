@@ -30,7 +30,10 @@ export const Button = ({ children, onClick, id, style, className, loading }: But
             px-8
             py-4
             uppercase
+            dark:border-gray-400
+            dark:bg-zinc-800
             hover:text-primary
+            dark:hover:text-white
             hover:border-primary
             ${loading ? 'opacity-60 cursor-not-allowed' : ''}
             ${className}

@@ -9,8 +9,9 @@ export const Icons = () => {
                  style={{ margin: '0 auto' }}
                  viewBox="0 0 26 22"
                  width="26px">
-                <g fill="none" fill-rule="evenodd" id="Page-1" opacity="0.900000036" stroke="none" stroke-width="1">
-                    <g id="Contact-Me" stroke="#FFFFFF" stroke-width="1.5"
+                <g fill="none" fillRule="evenodd" id="Page-1" opacity="0.900000036" stroke="none"
+                   strokeWidth="1">
+                    <g id="Contact-Me" stroke="#FFFFFF" strokeWidth="1.5"
                        transform="translate(-995.000000, -620.000000)">
                         <g id="Form" transform="translate(135.000000, 344.000000)">
                             <g id="Contact-Details" transform="translate(800.000000, 0.000000)">
@@ -51,14 +52,15 @@ export const Icons = () => {
                  version="1.1"
                  viewBox="0 0 18 26"
                  width="18px">
-                <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
-                    <g id="Contact-Me" stroke="#FFFFFF" stroke-width="1.5"
+                <g fill="none" fillRule="evenodd" id="Page-1" stroke="none" strokeWidth="1">
+                    <g id="Contact-Me" stroke="#FFFFFF" strokeWidth="1.5"
                        transform="translate(-999.000000, -479.000000)">
                         <g id="Form" transform="translate(135.000000, 344.000000)">
                             <g id="Contact-Details" transform="translate(800.000000, 0.000000)">
                                 <g id="Location" transform="translate(60.000000, 135.000000)">
                                     <g id="Icon" transform="translate(0.000000, 1.000000)">
-                                        <g id="location-icon" transform="translate(5.000000, 0.000000)">
+                                        <g id="location-icon"
+                                           transform="translate(5.000000, 0.000000)">
                                             <polyline id="Shape"
                                                       points="11.9863 17.5001 13.3675 17.5001 15.7209 23.5001 0.252 23.5001 2.6054 17.5001 3.9863 17.5001">
                                             </polyline>
@@ -288,7 +290,8 @@ export const Icons = () => {
             </svg>
         ),
         play: (
-            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="svg-inline--fa fa-play fa-w-14"
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                 className="svg-inline--fa fa-play fa-w-14"
                  role="img" viewBox="0 0 448 512" id="icon-play">
                 <path
                     fill="currentColor"
@@ -297,7 +300,8 @@ export const Icons = () => {
             </svg>
         ),
         playing: (
-            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="svg-inline--fa fa-play fa-w-14"
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                 className="svg-inline--fa fa-play fa-w-14"
                  role="img" viewBox="0 0 448 512" id="icon-play">
                 <path
                     fill="currentColor"
@@ -306,7 +310,8 @@ export const Icons = () => {
             </svg>
         ),
         pause: (
-            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="svg-inline--fa fa-pause fa-w-14"
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                 className="svg-inline--fa fa-pause fa-w-14"
                  role="img" viewBox="0 0 448 512" id="icon-pause">
                 <path
                     fill="currentColor"
@@ -316,7 +321,8 @@ export const Icons = () => {
         ),
         next: (
             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                 className="svg-inline--fa fa-step-forward fa-w-14" role="img" viewBox="0 0 448 512" id="icon-next">
+                 className="svg-inline--fa fa-step-forward fa-w-14" role="img" viewBox="0 0 448 512"
+                 id="icon-next">
                 <path
                     fill="currentColor"
                     d="M384 44v424c0 6.6-5.4 12-12 12h-48c-6.6 0-12-5.4-12-12V291.6l-195.5 181C95.9 489.7 64 475.4 64 448V64c0-27.4 31.9-41.7 52.5-24.6L312 219.3V44c0-6.6 5.4-12 12-12h48c6.6 0 12 5.4 12 12z"/>
@@ -324,7 +330,8 @@ export const Icons = () => {
         ),
         previous: (
             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                 className="svg-inline--fa fa-step-backward fa-w-14" role="img" viewBox="0 0 448 512"
+                 className="svg-inline--fa fa-step-backward fa-w-14" role="img"
+                 viewBox="0 0 448 512"
                  id="icon-previous">
                 <path
                     fill="currentColor"
@@ -333,11 +340,31 @@ export const Icons = () => {
             </svg>
         ),
         menu: (
-            <svg className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            <svg className="icon" viewBox="0 0 1024 1024" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg"
                  width="200" height="200">
                 <path
                     d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zM904 784H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zM904 472H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
                     p-id="2308"></path>
+            </svg>
+        ),
+        dark: (
+            <svg className="icon" viewBox="0 0 1024 1024" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" p-id="2365"
+                 width="20" height="20">
+                <path
+                    d="M593.054 120.217C483.656 148.739 402.91 248.212 402.91 366.546c0 140.582 113.962 254.544 254.544 254.544 118.334 0 217.808-80.746 246.328-190.144C909.17 457.12 912 484.23 912 512c0 220.914-179.086 400-400 400S112 732.914 112 512s179.086-400 400-400c27.77 0 54.88 2.83 81.054 8.217z"
+                    fill="rgb(107, 114, 128)" fillOpacity=".65" p-id="2366"></path>
+            </svg>
+        ),
+        light: (
+            <svg className="icon" viewBox="0 0 1024 1024" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" p-id="4666"
+                 width="20" height="20" strokeWidth="2">
+                <path
+                    fill="white"
+                    d="M544 832v96h-64v-96h64z m-280.896-116l45.248 45.28-67.904 67.84L195.2 783.936l67.904-67.904z m498.144-0.352l67.904 67.872-45.248 45.28-67.904-67.904 45.248-45.248zM512 256c141.44 0 256 114.56 256 256s-114.56 256-256 256-256-114.56-256-256 114.56-256 256-256z m0 64c-105.6 0-192 86.4-192 192s86.4 192 192 192 192-86.4 192-192-86.4-192-192-192zM192 480v64H96v-64h96z m736 0v64h-96v-64h96zM240.096 195.2l67.872 67.904L262.72 308.352 194.848 240.48 240.096 195.2z m543.424-0.32L828.8 240.064l-67.872 67.904-45.248-45.28 67.872-67.84zM544 96v96h-64V96h64z"
+                    p-id="4667"></path>
             </svg>
         )
     };

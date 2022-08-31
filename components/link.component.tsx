@@ -21,7 +21,7 @@ export const LinkItem = ({ url, thumb, title, description, category }: PostCardP
     return <>
         <a href={url} target={isExternalUrl ? '_blank' : '_self'} rel="noreferrer">
             <div
-                className="w-full mx-auto bg-white rounded hover:shadow-md overflow-hidden border border-solid border-gray-100">
+                className="w-full mx-auto bg-white rounded hover:shadow-md overflow-hidden border border-solid border-gray-100 dark:bg-zinc-800 dark:border-zinc-800">
                 <div className="lg:flex">
                     <div className="lg:flex-shrink-0">
                         <img className="h-48 w-full object-cover lg:w-48 object-cover" src={thumb} alt={title}/>
@@ -33,7 +33,7 @@ export const LinkItem = ({ url, thumb, title, description, category }: PostCardP
                         <a href={url}
                            target={isExternalUrl ? '_blank' : '_self'}
                            rel="noreferrer"
-                           className="block mt-1 text-100xl leading-tight font-medium text-black">
+                           className="block mt-1 text-100xl leading-tight font-medium text-black dark:text-gray-400">
                             {title}
                         </a>
                         <p className="mt-2 text-gray-500">{description}</p>

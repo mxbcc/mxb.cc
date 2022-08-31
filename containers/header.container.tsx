@@ -17,7 +17,7 @@ const AnimatedContainer = posed.div({
     },
 });
 
-export const Header = ({ title, avatar }) => (
+export const Header = ({ title, avatar, mode }) => (
     <header className="flex justify-between items-center p-8 sm:p-16">
         <a href="/" className="flex justify-between items-center">
             {avatar ? <img src={avatar} alt={title}
@@ -26,6 +26,6 @@ export const Header = ({ title, avatar }) => (
                 {title}
             </h1>
         </a>
-        <Nav/>
+        <Nav mode={mode} />
     </header>
 );

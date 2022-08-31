@@ -9,13 +9,13 @@ import { Links, LinkItem } from "../components/link.component";
 import { GET_INNER_LINKS } from "../graphql/links.gql";
 import { CommentContainer } from "../containers/comment.container";
 
-export default function LinksPage({ meta }: BaseProps) {
+export default function LinksPage({ meta, mode }: BaseProps) {
     return <>
         <Layout>
             <Head>
                 <title>Links - {meta.title} - {meta.description}</title>
             </Head>
-            <Header title={meta.title} avatar={meta?.avatar?.publicUrl}/>
+            <Header title={meta.title} avatar={meta?.avatar?.publicUrl} mode={mode} />
             <div style={{ maxWidth: 1400, margin: '0 auto' }}>
                 <Query query={GET_INNER_LINKS} render={links => <Links>
                     {links.map(link => <LinkItem

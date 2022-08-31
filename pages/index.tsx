@@ -18,13 +18,13 @@ import { GalleriesContainer } from "../containers/galleries.container";
 
 export default class Homepage extends React.Component<BaseProps, any> {
     render() {
-        const { meta } = this.props;
+        const { meta, mode } = this.props;
         return <>
             <Layout>
                 <Head>
                     <title>{meta.title} - {meta.description}</title>
                 </Head>
-                <Header title={meta.title} avatar={meta?.avatar?.publicUrl}/>
+                <Header title={meta.title} avatar={meta?.avatar?.publicUrl} mode={mode} />
                 <div style={{ maxWidth: 1400, margin: '0 auto' }}>
                     <Query
                         type="object" query={GET_BANNER} variables={{ key: 'homepage' }}

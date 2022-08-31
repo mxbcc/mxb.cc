@@ -31,7 +31,7 @@ export const Card = ({ url, thumb, title, description }: PostCardProps) => {
             {!!thumb && (<img src={thumb + '?x-oss-process=style/post-thumb'} alt={title}/>)}
         </a>
         <header className="p-10">
-            <h2 className="text-black text-3xl mb-1 dark:text-gray-50">
+            <h2 className="text-black text-3xl mb-1 dark:text-gray-400">
                 <a href={url}
                    target={isExternalUrl ? '_blank' : ''}
                    rel="noreferrer"
@@ -39,7 +39,7 @@ export const Card = ({ url, thumb, title, description }: PostCardProps) => {
                     {title}
                 </a>
             </h2>
-            <div className="font-extralight mb-0 dark:text-gray-50">{description}</div>
+            <div className="font-extralight mb-0 dark:text-gray-400">{description}</div>
         </header>
     </article>;
 }

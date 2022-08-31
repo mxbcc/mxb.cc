@@ -1,37 +1,44 @@
 import * as React from 'react';
-import { useCookies } from 'react-cookie';
+import { setCookie } from 'cookies-next';
 import { Icons } from "../constants/icons.constants";
+import { useEffect, useState } from "react";
 
-export const Nav = () => {
-    const [cookies, setCookies] = useCookies(['mode']);
-    const setMode = (mode: string) => setCookies('mode', mode);
-    const isDark = cookies.mode === 'dark';
+export const Nav = ({ mode: darkMode }) => {
+    const [mode, setMode] = useState(darkMode);
+    const isDark = mode === 'dark';
+    useEffect(() => {
+        const htmlTag = document.getElementsByTagName('html')[0];
+        if (htmlTag) {
+            htmlTag.className = mode;
+        }
+        setCookie('mode', mode);
+    }, [mode]);
     return <nav>
         <ul className="flex list-none p-0">
             <li className="uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a href={'/posts'}>Blog</a>
+                <a className="dark:hover:text-white" href={'/posts'}>Blog</a>
             </li>
             <li className="uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a target="_blank" href={'https://resume.mxb.cc'} rel="noreferrer">Resume</a>
+                <a className="dark:hover:text-white" target="_blank" href={'https://resume.mxb.cc'} rel="noreferrer">Resume</a>
             </li>
             <li className="uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a href={'/music'}>Music</a>
+                <a className="dark:hover:text-white" href={'/music'}>Music</a>
             </li>
             <li className="uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a href={'/contact'}>Contact</a>
+                <a className="dark:hover:text-white" href={'/contact'}>Contact</a>
             </li>
             <li className="uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a href={'/about'}>About</a>
+                <a className="dark:hover:text-white" href={'/about'}>About</a>
             </li>
             <li className="hidden sm:block uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a href={'/guest-book'}>GuestBook</a>
+                <a className="dark:hover:text-white" href={'/guest-book'}>GuestBook</a>
             </li>
             <li className="hidden sm:block uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a href={'/links'}>Links</a>
+                <a className="dark:hover:text-white" href={'/links'}>Links</a>
             </li>
-            <li className="hidden sm:block uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a onClick={() => setMode(isDark ? 'light' : 'dark')}>
-                    {isDark ? Icons().light : Icons().dark}
+            <li className="sm:block uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
+                <a className="cursor-pointer" onClick={() => setMode(isDark ? 'light' : 'dark')}>
+                    {isDark}{isDark ? Icons().light : Icons().dark}
                 </a>
             </li>
         </ul>

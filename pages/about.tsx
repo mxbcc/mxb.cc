@@ -11,13 +11,13 @@ import { CommentContainer } from "../containers/comment.container";
 
 export default class AboutPage extends React.Component<BaseProps, any> {
     render() {
-        const { meta } = this.props;
+        const { meta, mode } = this.props;
         return <>
             <Layout>
                 <Head>
                     <title>About - {meta.title} - {meta.description}</title>
                 </Head>
-                <Header title={meta.title} avatar={meta?.avatar?.publicUrl}/>
+                <Header title={meta.title} avatar={meta?.avatar?.publicUrl} mode={mode}/>
                 <Query type="object" query={GET_ABOUT} render={post => <Layout>
                     <Post post={post} meta={meta}>
                         <CommentContainer page="/about" meta={meta}/>

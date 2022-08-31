@@ -12,7 +12,7 @@ import getConfig from 'next/config';
 
 const { publicRuntimeConfig: { serverUrl } } = getConfig();
 
-export default function ContactPage({ meta }: BaseProps) {
+export default function ContactPage({ meta, mode }: BaseProps) {
     const [sending, updateSending] = useState(false);
     const { addToast } = useToasts();
     const submit = async (values) => {
@@ -30,7 +30,7 @@ export default function ContactPage({ meta }: BaseProps) {
             <Head>
                 <title>Contact - {meta.title} - {meta.description}</title>
             </Head>
-            <Header title={meta.title} avatar={meta?.avatar?.publicUrl}/>
+            <Header title={meta.title} avatar={meta?.avatar?.publicUrl} mode={mode}/>
             <Contact loading={sending} onSubmit={values => submit(values)} meta={meta}/>
             <Footer meta={meta}/>
         </Layout>

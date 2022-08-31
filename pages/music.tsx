@@ -19,7 +19,7 @@ export async function getServerSideProps() {
     return { props: { tracks: playlist.tracks } };
 }
 
-export default function MusicPage({ tracks, meta }) {
+export default function MusicPage({ tracks, meta, mode }) {
     const [playingIndex, setPlayingIndex] = useState<number>(-1);
     const [current, setCurrent] = useState<any>({ id: '', dt: 0 });
     const [localTracks, setTracks] = useState<any>([]);
@@ -57,7 +57,7 @@ export default function MusicPage({ tracks, meta }) {
         <Head>
             <title>My favorite music - {meta.title} - {meta.description}</title>
         </Head>
-        <Header title={meta.title} avatar={meta?.avatar?.publicUrl}/>
+        <Header title={meta.title} avatar={meta?.avatar?.publicUrl} mode={mode} />
         <MusicCards>
             {list.map((track, index) => <MusicCard
                 key={track.id}

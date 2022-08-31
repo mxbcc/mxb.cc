@@ -16,10 +16,10 @@ export default class PostPage extends React.Component<BaseProps, any> {
     }
 
     render() {
-        const { id, meta } = this.props;
+        const { id, meta, mode } = this.props;
         return <>
             <Layout>
-                <Header title={meta.title} avatar={meta?.avatar?.publicUrl}/>
+                <Header title={meta.title} avatar={meta?.avatar?.publicUrl} mode={mode} />
                 <Query type="object" query={GET_POST} variables={{ key: id }} render={post => <>
                     <Head>
                         <title>{post.title} - {meta.title}</title>

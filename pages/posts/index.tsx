@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
 
-export default function PostsPage({ meta }) {
+export default function PostsPage({ meta, mode }) {
     const [page, updatePage] = useState(1);
     const [size] = useState(8);
     const first = page * size;
@@ -32,7 +32,7 @@ export default function PostsPage({ meta }) {
             <Head>
                 <title>Blog - {meta.title} - {meta.description}</title>
             </Head>
-            <Header title={meta.title} avatar={meta?.avatar?.publicUrl}/>
+            <Header title={meta.title} avatar={meta?.avatar?.publicUrl} mode={mode} />
             <div style={{ maxWidth: 1400, margin: '0 auto' }}>
                 <Cards title="">
                     {posts.map(post => <Card

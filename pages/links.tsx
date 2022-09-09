@@ -28,7 +28,7 @@ export default function LinksPage({ meta, mode }: BaseProps) {
                     />)}
                 </Links>}/>
                 <div className="mx-8 md:mx-16 mt-16">
-                    <CommentContainer page="/links" meta={meta}/>
+                    <CommentContainer page="/links" meta={meta} mode={mode}/>
                 </div>
             </div>
             <Footer meta={meta}/>

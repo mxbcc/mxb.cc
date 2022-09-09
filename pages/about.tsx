@@ -20,7 +20,7 @@ export default class AboutPage extends React.Component<BaseProps, any> {
                 <Header title={meta.title} avatar={meta?.avatar?.publicUrl} mode={mode}/>
                 <Query type="object" query={GET_ABOUT} render={post => <Layout>
                     <Post post={post} meta={meta}>
-                        <CommentContainer page="/about" meta={meta}/>
+                        <CommentContainer page="/about" meta={meta}  mode={mode}/>
                     </Post>
                 </Layout>}/>
                 <Footer meta={meta}/>

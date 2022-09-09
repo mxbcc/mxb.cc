@@ -17,9 +17,10 @@ const MxbComment: any = dynamic(
 interface CommentContainerProps {
     page: string;
     meta: Metadata;
+    mode: 'dark' | 'light';
 }
 
-export const CommentContainer = ({ page, meta }: CommentContainerProps) => {
+export const CommentContainer = ({ page, meta, mode }: CommentContainerProps) => {
     const { error, data, refetch } = useQuery(GET_COMMENTS, { variables: { page } });
     if (error) {
         return <div>{error}</div>;
@@ -62,6 +63,11 @@ export const CommentContainer = ({ page, meta }: CommentContainerProps) => {
         }
     }
     return <div>
-        <MxbComment onSubmit={(params) => submit(params)} comments={list} adminEmail={meta.admin_email}/>
+        <MxbComment
+            onSubmit={(params) => submit(params)}
+            comments={list}
+            adminEmail={meta.admin_email}
+            isDark={mode === 'dark'}
+        />
     </div>
 }

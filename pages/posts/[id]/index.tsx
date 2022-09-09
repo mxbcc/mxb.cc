@@ -29,7 +29,7 @@ export default class PostPage extends React.Component<BaseProps, any> {
                     </Head>
                     <Script src={"https://mxbcc.oss-cn-beijing.aliyuncs.com/js/prism.js"}/>
                     <Post post={post} meta={meta}>
-                        <CommentContainer page={`/posts/${post.key}`} meta={meta}/>
+                        <CommentContainer page={`/posts/${post.key}`} meta={meta} mode={mode}/>
                     </Post>
                 </>}/>
                 <Footer meta={meta}/>

@@ -3018,10 +3018,10 @@ multer@^1.4.2:
     type-is "^1.6.4"
     xtend "^4.0.0"
 
-mxb-comment@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.npmjs.org/mxb-comment/-/mxb-comment-1.3.2.tgz#41c1d5d949bf957f1670bc4c26dc8a3558ba5d41"
-  integrity sha512-BVRnKOCVtacTqgVRk/C0LKQvlzKK02MPyh/C+HtVmbdsWgnZWQjZbF4p+kfNEkVd0lLv0IE8Bx/Fw2ZXbZNYkw==
+mxb-comment@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/mxb-comment/-/mxb-comment-1.4.3.tgz#7613897dc59f7e2ed9082e07a470cc16cad187de"
+  integrity sha512-R+P0Z/VEHVbL/7RcdD4kNkJDa2uvmCezk7X0PkGzFHeg2rnbQozV24O9UeBMSc6TqI3waPiMGyCy6z27/m48TA==
   dependencies:
     dayjs "^1.10.4"
     insert-text-at-cursor "^0.3.0"

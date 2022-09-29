@@ -2,9 +2,10 @@ export interface Metadata {
     title: string;
     keywords: string;
     description: string;
-    icp: string;
-    icp_url: string;
     avatar: {
+        publicUrl: string;
+    };
+    avatar_background: {
         publicUrl: string;
     };
     qrcode: {
@@ -12,4 +13,5 @@ export interface Metadata {
     };
     admin_name: string;
     admin_email: string;
+    script: string;
 }

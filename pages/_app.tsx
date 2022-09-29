@@ -7,8 +7,10 @@ import '../styles/index.less';
 import { WithApollo } from "../decorators";
 import { ConfigProps } from "../interfaces/props.interface";
 import { Query } from "../components/query.component";
-import { GET_SITE_METADATA } from "../graphql/metadata.gql";
 import { getCookie } from "cookies-next";
+import { GET_SETTINGS } from "../graphql/setting.gql";
+import { Metadata } from "../interfaces/meta.interface";
+import { Setting } from "../enums/setting.enum";
 
 interface MyAppProps extends ConfigProps {
     apolloClient?: ApolloClient<any>;
@@ -31,24 +33,59 @@ export default class MyApp extends App<MyAppProps> {
         return { pageProps, mode };
     }
 
+    getMeta(settings): Metadata {
+        const map = new Map<string, string>();
+        settings.forEach(setting => map.set(setting.key, setting.value));
+        return {
+            title: map.get(Setting.MXB_TITLE),
+            keywords: map.get(Setting.MXB_KEYWORDS),
+            description: map.get(Setting.MXB_DESCRIPTION),
+            avatar: {
+                publicUrl: map.get(Setting.MXB_AVATAR),
+            },
+            avatar_background: {
+                publicUrl: map.get(Setting.MXB_AVATAR_BG),
+            },
+            qrcode: {
+                publicUrl: map.get(Setting.MXB_QRCODE),
+            },
+            admin_name: map.get(Setting.MXB_ADMIN_NAME),
+            admin_email: map.get(Setting.MXB_ADMIN_EMAIL),
+            script: map.get(Setting.MXB_SCRIPT),
+        }
+    }
+
     render() {
         const { Component, pageProps, apolloClient, user, mode } = this.props;
         return (
             <ApolloProvider client={apolloClient}>
                 <ToastProvider autoDismissTimeout={2000} autoDismiss={true}>
-                    <Query type="object" query={GET_SITE_METADATA} render={meta => <>
-                        <Head>
-                            <link rel="shortcut icon" href={"favicon.ico"} type="image/x-icon"/>
+                    <Query
+                        type="array"
+                        query={GET_SETTINGS}
+                        variables={{ type: 'mxb' }}
+                        render={settings => {
+                            const meta = this.getMeta(settings);
+                            return <>
+                                <Head>
+                                    <link
+                                        rel="shortcut icon"
+                                        href={"favicon.ico"}
+                                        type="image/x-icon"
+                                    />
 
-                            <meta
-                                name="viewport"
-                                content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
-                            <meta name="keywords" content={meta.keywords}/>
-                            <meta name="description" content={meta.description}/>
-                            <script dangerouslySetInnerHTML={{ __html: meta.header_script }}/>
-                        </Head>
-                        <Component {...pageProps} user={user} meta={meta} mode={mode}/>
-                    </>}/>
+                                    <meta
+                                        name="viewport"
+                                        content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+                                    <meta name="keywords" content={meta.keywords}/>
+                                    <meta name="description" content={meta.description}/>
+                                    <script
+                                        dangerouslySetInnerHTML={{ __html: meta.script }}/>
+                                </Head>
+                                <Component {...pageProps} user={user} meta={meta} mode={mode}/>
+                            </>;
+                        }}
+                    />
                 </ToastProvider>
             </ApolloProvider>
         );

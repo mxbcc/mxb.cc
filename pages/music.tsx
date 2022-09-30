@@ -13,7 +13,7 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig: { serverUrl } } = getConfig();
 
 export async function getServerSideProps() {
-    const res = await fetch(`${serverUrl}/nest-api/music`);
+    const res = await fetch(`${serverUrl}/apis/music`);
     const playlist = await res.json();
 
     return { props: { tracks: playlist.tracks } };
@@ -37,7 +37,7 @@ export default function MusicPage({ tracks, meta, mode }) {
     }
 
     const updateTracks = async () => {
-        const res = await fetch(`${serverUrl}/nest-api/music`);
+        const res = await fetch(`${serverUrl}/apis/music`);
         const playlist = await res.json();
         setTracks(playlist.tracks);
     }

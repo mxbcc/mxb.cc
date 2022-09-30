@@ -23,7 +23,7 @@ interface CommentContainerProps {
 export const CommentContainer = ({ page, meta, mode }: CommentContainerProps) => {
     const { error, data, refetch } = useQuery(GET_COMMENTS, { variables: { page } });
     if (error) {
-        return <div>{error}</div>;
+        return <div>{error.message}</div>;
     }
 
     const comments = data?.allComments ?? [];

@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const response = await axios.post(`${serverUrl}/nest-api/comments`, req.body, {
+        const response = await axios.post(`${serverUrl}/apis/comments`, req.body, {
             headers: {
                 cookie: req.headers.cookie
             }

@@ -11,7 +11,7 @@ export const BannerImagesContainer = props => {
     ];
     const { error, data } = useQuery(GET_BANNER_IMAGES);
     if (error) {
-        return <div>{error}</div>;
+        return <div>{error.message}</div>;
     }
 
     const images = data?.allBannerImages ?? [];

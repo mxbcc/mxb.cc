@@ -17,7 +17,7 @@ interface FooterProps extends BaseProps {
 export const Footer = ({ meta, style }: FooterProps) => {
     const { error, data } = useQuery(GET_GLOBAL_LINKS);
     if (error) {
-        return <div>{error}</div>;
+        return <div>{error.message}</div>;
     }
 
     const links = data?.allLinks ?? [];
@@ -25,10 +25,13 @@ export const Footer = ({ meta, style }: FooterProps) => {
     const [email, setEmail] = useState('');
     const subscribe = async () => {
         try {
-            await axios.post(`${serverUrl}/nest-api/subscriptions`, { email });
+            await axios.post(`${serverUrl}/apis/subscriptions`, { email });
             addToast('订阅成功，如需取消请联系管理员', { appearance: 'success', autoDismiss: true });
         } catch (e) {
-            addToast(e?.response?.data?.message ?? e.message, { appearance: 'error', autoDismiss: true });
+            addToast(e?.response?.data?.message ?? e.message, {
+                appearance: 'error',
+                autoDismiss: true
+            });
         }
     }
 
@@ -68,10 +71,12 @@ export const Footer = ({ meta, style }: FooterProps) => {
                     </form>
                 </div>
                 <div className="mt-12 text-white">
-                    <a className="mr-8 hover:text-white" href="http://weibo.com/zfeng217" target="_blank">
+                    <a className="mr-8 hover:text-white" href="http://weibo.com/zfeng217"
+                       target="_blank">
                         <span className="text-100xl">Weibo</span>
                     </a>
-                    <a className="mr-8 hover:text-white" href="https://github.com/mxbcc" target="_blank">
+                    <a className="mr-8 hover:text-white" href="https://github.com/mxbcc"
+                       target="_blank">
                         <span className="text-100xl">GitHub</span>
                     </a>
                 </div>
@@ -87,12 +92,14 @@ export const Footer = ({ meta, style }: FooterProps) => {
             <div className="inline-block text-100xl mt-8 w-full">
                 <span>Built by</span>
                 <span> </span>
-                <a className="text-white hover:text-white" href="http://github.com/miaowing">Miaowing</a>
+                <a className="text-white hover:text-white"
+                   href="http://github.com/miaowing">Miaowing</a>
                 <span> </span>
                 <span>with ♥</span>
                 <div className="float-none text-white">
                     {links.map(link =>
-                        <a className="mr-12 hover:text-white" key={link.name} href={link.url} target="_blank">
+                        <a className="mr-12 hover:text-white" key={link.name} href={link.url}
+                           target="_blank">
                             <span dangerouslySetInnerHTML={{ __html: link.name }}/>
                         </a>
                     )}

@@ -18,7 +18,7 @@ export default function ContactPage({ meta, mode }: BaseProps) {
     const submit = async (values) => {
         updateSending(true);
         try {
-            await axios.post(`${serverUrl}/nest-api/contacts`, values);
+            await axios.post(`${serverUrl}/apis/contacts`, values);
             addToast('Send Successful', { appearance: 'success', autoDismiss: true });
         } catch (e) {
             addToast(e?.response?.data?.message ?? e.message, { appearance: 'error', autoDismiss: true });

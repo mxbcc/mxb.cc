@@ -17,7 +17,7 @@ export default function PostsPage({ meta, mode }) {
 
     const { error, data, refetch } = useQuery(GET_POSTS, { variables: { skip: 0, first } });
     if (error) {
-        return <div>{error}</div>;
+        return <div>{error.message}</div>;
     }
 
     const posts = data?.allPosts ?? [];

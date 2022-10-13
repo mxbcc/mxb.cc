@@ -14,7 +14,6 @@ export interface Post {
         publicUrl: string;
     }
     content: string;
-    html_content: string;
     publish: boolean;
     top: boolean;
     source: string;

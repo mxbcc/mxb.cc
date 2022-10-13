@@ -10,12 +10,13 @@ import { GET_ALL_POSTS } from "../graphql/post.gql";
 import { Post as IPost } from '../interfaces/post.interface';
 import { getRandomArrayElements } from "../helpers/data.helper";
 import { useEffect, useState } from "react";
+import rehypeRaw from 'rehype-raw';
 
 export const Post = ({ post, children, meta }) => {
-    let content = <div className="post" dangerouslySetInnerHTML={{ __html: post.html_content }}/>;
-    if (post.content) {
-        content = <div className="post"><ReactMarkdown source={post.content}/></div>;
-    }
+    const content = <div className="post">
+        {/* eslint-disable-next-line react/no-children-prop */}
+        <ReactMarkdown rehypePlugins={[rehypeRaw]} children={post.content}/>
+    </div>;
     const [randomPosts, updatePosts] = useState<any[]>([]);
     const { data } = useQuery(GET_AVATAR_META);
     const { posts } = useQuery<{ posts: IPost[] }>(GET_ALL_POSTS).data ?? { posts: [] };

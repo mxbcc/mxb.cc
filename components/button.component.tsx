@@ -30,7 +30,7 @@ export const Button = ({ children, onClick, id, style, className, loading }: But
             px-8
             py-4
             uppercase
-            dark:border-gray-400
+            dark:border-zinc-600
             dark:bg-zinc-800
             hover:text-primary
             dark:hover:text-white

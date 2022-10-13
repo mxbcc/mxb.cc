@@ -6,13 +6,16 @@ import { useEffect, useState } from "react";
 export const Nav = ({ mode: darkMode }) => {
     const [mode, setMode] = useState(darkMode);
     const isDark = mode === 'dark';
-    useEffect(() => {
+
+    const updateMode = (mode: string) => {
+        setMode(mode);
+        setCookie('mode', mode);
         const htmlTag = document.getElementsByTagName('html')[0];
         if (htmlTag) {
             htmlTag.className = mode;
         }
-        setCookie('mode', mode);
-    }, [mode]);
+    }
+
     return <nav>
         <ul className="flex list-none p-0">
             <li className="uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
@@ -37,7 +40,7 @@ export const Nav = ({ mode: darkMode }) => {
                 <a className="dark:hover:text-white" href={'/links'}>Links</a>
             </li>
             <li className="sm:block uppercase text-xl sm:text-2xl text-gray-500 ml-4 sm:ml-8">
-                <a className="cursor-pointer" onClick={() => setMode(isDark ? 'light' : 'dark')}>
+                <a className="cursor-pointer" onClick={() => updateMode(isDark ? 'light' : 'dark')}>
                     {isDark}{isDark ? Icons().light : Icons().dark}
                 </a>
             </li>

@@ -56,14 +56,16 @@ export const Footer = ({ meta, style }: FooterProps) => {
                                 text-white float-left mr-4 rounded transition-colors duration-200 min-w-footer
                                 shadow-none outline-0 border border-solid border-footer-text text-100xl
                                 font-medium appearance-none h-16 mb-4 w-96 leading-13 bg-transparent px-4 py-1.5
+                                dark:border-zinc-600 dark:bg-zinc-800
                             "
                             placeholder="Email Address"/>
                         <button
                             type="button"
                             name="subscribe"
                             className="
-                                rounded border border-white border-solid font-bold outline-0 uppercase px-12
-                                text-100xl transition-all duration-100 ease-in-out text-white h-16 cursor-pointer
+                                rounded border border-footer-text border-solid font-bold outline-0 uppercase px-12
+                                text-100xl transition-all duration-100 ease-in-out h-16 cursor-pointer
+                                dark:border-zinc-600 dark:bg-zinc-800
                             "
                             onClick={subscribe}>
                             Subscribe

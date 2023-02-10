@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "../components/button.component";
 import axios from 'axios';
 import { useToasts } from 'react-toast-notifications';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 export const OpenaiContainer = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks

@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useToasts } from 'react-toast-notifications';
 import dayjs from 'dayjs';
 
+const sessionId = `${Date.now()}_${Math.floor(Math.random() * 1000000)}_${Math.floor(Math.random() * 1000)}`;
+
 export const OpenaiContainer = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { addToast } = useToasts();
@@ -19,7 +21,7 @@ export const OpenaiContainer = () => {
             setMessages(messages);
             setLoading(true);
             setQuestion('');
-            const res = await axios.post<any>('/api/openai', { text: question });
+            const res = await axios.post<any>('/api/openai', { text: question, sessionId });
             messages.unshift({ msg: res.data.text, time: Date.now() });
             setMessages(messages);
             setLoading(false);

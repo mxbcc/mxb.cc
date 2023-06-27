@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: mxb-web
-  name: mxb-web
+    app: mxb-cc
+  name: mxb-cc
   namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: mxb-web
+      app: mxb-cc
   template:
     metadata:
       labels:
-        app: mxb-web
+        app: mxb-cc
     spec:
       containers:
         - env:
@@ -21,7 +21,7 @@ spec:
               value: production
           image: mxbcc/mxb.cc-web:master
           imagePullPolicy: IfNotPresent
-          name: mxb-web
+          name: mxb-cc
           resources: {}
           volumeMounts:
             - mountPath: /usr/src/app/.env.production
@@ -36,5 +36,5 @@ spec:
             items:
               - key: .env.production
                 path: .env.production
-            name: mxb-web-configmap
+            name: mxb-cc-configmap
           name: volume-config

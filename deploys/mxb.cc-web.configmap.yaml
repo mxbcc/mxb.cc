@@ -4,5 +4,5 @@ data:
     NEXT_PUBLIC_SERVER_URL=https://api.mxb.cc
 kind: ConfigMap
 metadata:
-  name: mxb-web-configmap
+  name: mxb-cc-configmap
   namespace: default
